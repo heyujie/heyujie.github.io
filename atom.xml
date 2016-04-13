@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yujiehe.xyz/"/>
-  <updated>2016-04-13T08:39:39.865Z</updated>
+  <updated>2016-03-27T02:46:31.708Z</updated>
   <id>http://yujiehe.xyz/</id>
   
   <author>
@@ -14,105 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://yujiehe.xyz/2016/04/13/JAVA%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E5%AD%97%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yujiehe.xyz/2016/04/13/JAVA几个关键字简单解析/</id>
-    <published>2016-04-13T08:19:10.847Z</published>
-    <updated>2016-04-13T08:39:39.865Z</updated>
-    
-    <content type="html">&lt;p&gt;#JAVA的几个关键字解析&lt;/p&gt;
-&lt;p&gt;##this&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1.可以用来修饰属性、方法、构造器  &lt;/p&gt;
-&lt;p&gt;2.this理解为当前对象（谁调用谁就是当前对象）或当前正在创建的对象 &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;*this.属性：表示当前正在创建的的对象的属性  &lt;/p&gt;
-&lt;p&gt;*this(形参）：显式地调用本类中其他重载的指定构造器【用于构造器，通过该方式要求该语句必须放在构造器内部首行，一个类中有n个构造器，最多可以有（n-1）个构造器使用了this(形参)  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##Package&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;声明在源文件所在的包下，写在程序的第一行，每“.”一次，表示一层文件目录，包名需小写  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##import&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1.显式导入指定包下的类和接口  &lt;/p&gt;
-&lt;p&gt;2.写在包的声明和源文件之间  &lt;/p&gt;
-&lt;p&gt;3.如果需要引入多个类或接口，那么就并列写出  &lt;/p&gt;
-&lt;p&gt;4.如果导入的包是java.lang包下的。如：System、String、Math等，就不需要显式声明  &lt;/p&gt;
-&lt;p&gt;5.例java.lang.*;表示导入lang包下的所有类和接口，不能导入lang子包下的类和接口  &lt;/p&gt;
-&lt;p&gt;6.Import static 表示导入指定类的static属性和方法  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##instanceof&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;格式： 对象 instanceof 类A  &lt;/p&gt;
-&lt;p&gt;判断对象是否是A的一个实例，是的话返回true，否则返回false。如果a是A的实例，那么a也是A类的父类的实例&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##super&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;（子类默认的构造器中有super();表示父类的构造器）可用来修饰属性，方法，构造器  &lt;/p&gt;
-&lt;p&gt;1.当子类与父类中有同名的属性，可以通过“super.此属性”显式的调用父类中声明的属性（若想调用子类同名的属性，“this.此属性”）  &lt;/p&gt;
-&lt;p&gt;2.当子类重写父类的方法时，显式调用父类的方法“”super.此方法  &lt;/p&gt;
-&lt;p&gt; 3.super(形参1，形参2…):在子类中通过调用父类的构造器修改父类的属性  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在构造器内部，“super(形参列表)”必须声明在首行！  &lt;/p&gt;
-&lt;p&gt;在构造器内部，“this(形参列表)”或“super(形参列表)”只能出现一次    &lt;/p&gt;
-&lt;p&gt;在构造器中，不显式的调用“this(形参列表)”或“super(形参列表)”，默认调用的是“super(形参列表)”父类空参构造器（建议在设计一个类时，尽量要提供一个空参的构造器）  &lt;/p&gt;
-&lt;p&gt;*注：在子类中的构造器默认super();调用父类空参构造器，若父类中没有定义空参构造器，而父类中定义了有参构造器。则在子类构造器中将出现异常。解决办法：1.在父类中写空参构造器。2.子类构造器首行显式调用父类有参构造器（super(形参列表)）。创建一个对象，一定会调用父类的空参构造器  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##static&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;静态的，可以用来修饰属性、方法、代码块、内部类  &lt;/p&gt;
-&lt;p&gt;1.static修饰属性（类变量）：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1）由类创建的所有对象都共用这一属性  &lt;/p&gt;
-&lt;p&gt;2）当其中一个对象对此属性进行修改，会导致其他对象对此属性的一个调用也改变。（实例变量，非static的，各个对象各自拥有一套副本）  &lt;/p&gt;
-&lt;p&gt;3）类变量随着类的加载而加载，而且独一份（唯一一份）  &lt;/p&gt;
-&lt;p&gt;4）静态变量可以直接通过“类.类变量”的形式来调用  &lt;/p&gt;
-&lt;p&gt;5）类变量的加载是要早于对象的（而实例变量随着对象的创建而被加载的）。所以当有对象后，可以“对象.类变量”使用，但是“类.实例变量”是不行的  &lt;/p&gt;
-&lt;p&gt;6）类变量存在于静态域中&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2.static修饰方法（类方法）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1）随着类的加载而加载，在内存中也是独一份（唯一一份）&lt;/p&gt;
-&lt;p&gt;2）可以通过“类.类方法”的方式调用&lt;/p&gt;
-&lt;p&gt;3）在静态方法内部可以调用静态属性或静态方法，而不能调用非静态的属性和方法。反之，非静态的可以调用静态的属性和方法&lt;/p&gt;
-&lt;p&gt;注：静态的结构(static的属性、方法、代码块、内部类）的生命周期要早于非静态的结构，时回收也要晚于非静态结构。静态的方法里不可以有this和super关键字&lt;br&gt;（static的一个应用：使用静态的变量可以实现“累加”的效果，因为静态的变量独一份，各对象调用均为同一个）  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;##final&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;最终的，可以用来修饰类，属性，方法  &lt;/p&gt;
-&lt;p&gt;1.final修饰类：这个类就不能再被继承。如：String类、StringBuffer类、System类  &lt;/p&gt;
-&lt;p&gt;2.final修饰方法：不能被重写。如：Object类的gerClass();  &lt;/p&gt;
-&lt;p&gt;3.fanal修饰属性：此属性就是一个常量。习惯上常量用大写字符表示（一旦初始化以后就不可以再被赋值）  &lt;/p&gt;
-&lt;p&gt;此常量在哪里赋值：1）此常量不能使用默认初始化2）可以显式的赋值、代码块、构造器（不能在方法中赋值）。Static final 修饰的变量为全局常量3)可以在方法的形参传递，对对象调用时赋值，但不可以再改变。格式：fianl 类型 形参名&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;#JAVA的几个关键字解析&lt;/p&gt;
-&lt;p&gt;##this&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1.可以用来修饰属性、方法、构造器  &lt;/p&gt;
-&lt;p&gt;2.this理解为当前对象（谁调用谁就是当前对象）或当前正在创建的对象 &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;*this
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title></title>
