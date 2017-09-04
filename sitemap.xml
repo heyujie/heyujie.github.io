@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://heyujie.xyz/remarks/index.html</loc>
+    
+    <lastmod>2017-09-04T15:12:50.011Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://heyujie.xyz/2017/09/04/2017%E5%86%8D%E5%87%BA%E5%8F%91/</loc>
     
     <lastmod>2017-09-04T15:09:07.903Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://heyujie.xyz/category/index.html</loc>
     
     <lastmod>2016-04-13T08:32:47.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://heyujie.xyz/remarks/index.html</loc>
-    
-    <lastmod>2016-03-27T07:27:16.050Z</lastmod>
     
   </url>
   
