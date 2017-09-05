@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
+    <meta name="description" content="title: 简易算法1date: 2017-09-05 23:40:08technology: 技术tags:—">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yujie--notes">
-<meta property="og:url" content="http://heyujie.xyz/2017/09/04/2017再出发/index.html">
+<meta property="og:url" content="http://heyujie.xyz/2017/09/05/简易算法1/index.html">
 <meta property="og:site_name" content="yujie--notes">
-<meta property="og:description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
-<meta property="og:updated_time" content="2017-09-04T15:09:07.903Z">
+<meta property="og:description" content="title: 简易算法1date: 2017-09-05 23:40:08technology: 技术tags:—">
+<meta property="og:updated_time" content="2017-09-05T15:36:04.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yujie--notes">
-<meta name="twitter:description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
+<meta name="twitter:description" content="title: 简易算法1date: 2017-09-05 23:40:08technology: 技术tags:—">
 
     
     <link rel="alternative" href="/atom.xml" title="yujie--notes" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/04/2017再出发/" title="" itemprop="url"></a>
+      <a href="/2017/09/05/简易算法1/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heyujie" target="_blank" itemprop="author">Heyujie</a>
 		
   <p class="article-time">
-    <time datetime="2017-09-04T15:03:45.881Z" itemprop="datePublished"> 发表于 2017-09-04</time>
+    <time datetime="2017-09-05T15:35:16.663Z" itemprop="datePublished"> 发表于 2017-09-05</time>
     
   </p>
 </header>
@@ -104,9 +104,20 @@
 		</div>
 		
 		<hr>
-<p>title: 2017之初<br>date: 2017-09-04 23:08:08<br>categories: 日志<br>tags:<br>—        <a id="more"></a></p>
-<p>2017年9月4日，又回到了这里，欢迎各位有空到我的主页逛逛，以后我会用心维护，多发一点分享博文。</p>
-<p>谢谢</p>
+<p>title: 简易算法1<br>date: 2017-09-05 23:40:08<br>technology: 技术<br>tags:<br>—        <a id="more"></a></p>
+<p>1.数组中有一个数出现的次数超过了数组长度的一半，找出这个数。<br>题目来源：<br>牛客网：数组中出现次数超过一半的数字</p>
+<p>例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
+<p>思路一：<br>最原始的想法，遍历数组的同时计数。利用hashmap存储，数组中出现的数字作为key，出现次数作value。每访问数组中的一个数字，判断其是否在hashmap的key中，如在，则对应的value加1；不在，插入，对应的value值设为1 。遍历完成后，找到hashmap中最大的value值，返回对应的key即为题目中要找的数字。</p>
+<p>遍历数组的时间复杂度为O(n),hashmap中找到最大value值的时间复杂度同为O(n)，空间复杂度为O(n)。</p>
+<p>思路二：<br>上述解法尽管拥有较低的时间复杂度。但是当数组中存在大量不同的数字时，将会存储大量无用的数字。如果你对数组的有序无序比较警觉，很快会意识到，数组有序时，可直接输出数组中的第n/2个元素（下标从0计起），即为所求结果。这个很好理解，假设你有一长一短两把尺子，长的20cm为A，短的11cm为B。B贴着A在A的范围内移动，A的中间位置10cm处总是会被B占据。</p>
+<p>利用快排算法，时间复杂度为O(nlgn),空间开销为O(1)。</p>
+<p>思路三：<br>多数人都不难找出上述两种解法。继续优化只能从减少不必要操作上入手。回到刚才，从直尺的类比中得到启发，全数组可以看作是两个子数组组成：一个数组C中只有超过长度超过一半的是数，一个数组D中由剩下的数字构成。C的长度总是比D长，每次从C和D中各取一个数字做“抵消”，直到D为空，没有任何数字；则C中剩余的数字即为所求。</p>
+<p>注意到C和D中每次取出的数字不可能相等<br>在实际中，我们不可能预先对数组分组。那我们试着对整个数组进行操作，每次都从全数组中选两个不同的数进行删除。最后数组中剩下的必然是要返回的数字。</p>
+<p>这样做时间复杂度是O(n),空间复杂度为O(1)。</p>
+<p>思路四：<br>思路三的做法会得到正确的结果，缺点是，输出结果的同时也破坏了原来的输入数组。沿着思路三改进，遍历数组的同时设计两个标记为candidate和times,candidate用来遍历数组时保存到的某个数，初始化为数组的第一个元素值。times记录次数。</p>
+<p>如果下一个数与当前的candidate中保存的数字相同，则times加1，表示它可以用来作“抵消”的次数加1。<br>反之，如果下一个数与当前的candidate中保存的数字不同，则做一次抵消，times减1。</p>
+<p>当times中的值为0后，表示当前的candidate可用于“抵消”的次数消耗完。保存下一个数字作为candidate，times重新设为1。<br>直到遍历完所有数组中所有的数字。<br>这样做时间复杂度是O(n),空间复杂度为O(1)，同时保留了题给的输入数组。</p>
+<p>小结：<br>思路一和思路二可以快速想到，思路三思路四如果没有经过一定量的训练，比较难想到这样的做法，因为这样的做法尽管简洁高效，但是它不自然，不是顺理成章的，经过了大量的逻辑加工。什么时候能想到用一加一减这样的抵消呢？对于某些可以比较明显可以区分开成两类的数据，可以试着往这方面思考。同时，简化步骤的操作要求善于设计辅助参数，如本题中的candidate和times，类似于解几何题中的辅助线。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,17 +166,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/09/05/简易算法1/" title="">
-  <strong>上一篇：</strong><br/>
-  <span>
-  (no title)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/13/电脑使用小方法/"  title="">
+<a href="/2017/09/04/2017再出发/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -176,7 +179,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/09/04/2017再出发/" data-title="" data-url="http://heyujie.xyz/2017/09/04/2017再出发/"></div>
+	<div class="ds-thread" data-thread-key="2017/09/05/简易算法1/" data-title="" data-url="http://heyujie.xyz/2017/09/05/简易算法1/"></div>
 </section>
 
 
