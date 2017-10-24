@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://heyujie.xyz/"/>
-  <updated>2017-09-05T15:36:04.033Z</updated>
+  <updated>2017-10-24T15:44:58.473Z</updated>
   <id>http://heyujie.xyz/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://heyujie.xyz/2017/10/24/x84_64%E4%B8%8BLEA%E6%8C%87%E4%BB%A4%E7%AE%80%E6%9E%90/"/>
+    <id>http://heyujie.xyz/2017/10/24/x84_64下LEA指令简析/</id>
+    <published>2017-10-24T15:44:58.471Z</published>
+    <updated>2017-10-24T15:44:58.473Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;p&gt;title: x84_64下LEA指令&lt;br&gt;date: 2017-10-25 23:20:08&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最近在Linux-0.11内核，看到LEA这个指令有些不大明白，因此去查了下资料并做一点小的总结。&lt;br&gt;LEA,即load effective address加载有效地址之意，形式是从存储器读数据到寄存器，效果是将存储器的有效地址写入到目的操作数，类似于C语言的&amp;amp;取指运算符。指令LEA的作用和80x86汇编有些类似，即地址传递。&lt;br&gt;这个指令其实和MOV很像，或者说是MOV的变形吧，但两者又有区别。MOV是数据传送指令，即把数据从源操作数传到目的操作数，MOV的具体一些细节这里不做细究，这里主要探讨一下LEA。在后面举例时就能看到这两者的一些区别。&lt;br&gt;例如在x84_64环境下,以下两行效果相同:&lt;br&gt;movq %rsp, %rdi&lt;br&gt;leaq (%rsp), %rdi&lt;br&gt;这里的区别是mov指令后的源操作数没有括号，是一种直接寻址的方式，即直接把%rsp的值赋给%rdi。是的。如果是movq (%rsp), %rdi，那么就变成了间接寻址了,也就是以%rsp里面的内容作为地址，到这个地址去取值，然后赋给%rdi寄存器。&lt;br&gt;那么leaq (%rsp), %rdi呢？首先，(%rsp)是一个内存引用，这里lea指令实际上并没有引用内存地址里的内容，而是把地址直接给了%rdi。&lt;br&gt;下面分析一个很有用但同时又很难理解的用法, 例如:leal 3(%ecx, %ecx, 2), %eax&lt;br&gt;假设%ecx的值为x, 执行上面语句得到%eax=3x+3.&lt;/p&gt;
+&lt;p&gt;有点奇怪吧, 一个取址指令居然可以用来做简单算术操作了? 其实理解起来也不难, 3(%ecx, %ecx, 2)这个地址的值，也就是“3x+3”这个地址中的值, 当这个值作为leal的源操作数时会被取地址, 地址是什么? 自然就是“3x+2”嘛!&lt;/p&gt;
+&lt;p&gt;呵呵，也就是说，其实不管是数值还是地址，机器也都是认识这是个数，对这个数的操作，操作完了按规则放进去不就是了嘛。&lt;/p&gt;
+&lt;p&gt;PS: 可能有人会问为什么不把源操作数写成5(, %edx, 3), 这个嘛, 因为这种寻址模式的比例因子只能是1, 2, 4或者8.&lt;/p&gt;
+&lt;p&gt;再来一个例子：leal 0x4(%esp), %ebx,该指令的作用是，取出esp寄存器里的值，加上4，不再继续寻址，而是将得到值直接传递给%ebx；如果是其他指令，则还需进行间接寻址，再传值（例如mov）.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: x84_64下LEA指令&lt;br&gt;date: 2017-10-25 23:20:08&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -43,29 +69,6 @@
     
       &lt;hr&gt;
 &lt;p&gt;title: 简易算法1&lt;br&gt;date: 2017-09-05 23:40:08&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://heyujie.xyz/2017/09/04/2017%E5%86%8D%E5%87%BA%E5%8F%91/"/>
-    <id>http://heyujie.xyz/2017/09/04/2017再出发/</id>
-    <published>2017-09-04T15:03:45.881Z</published>
-    <updated>2017-09-04T15:09:07.903Z</updated>
-    
-    <content type="html">&lt;hr&gt;
-&lt;p&gt;title: 2017之初&lt;br&gt;date: 2017-09-04 23:08:08&lt;br&gt;categories: 日志&lt;br&gt;tags:&lt;br&gt;—        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2017年9月4日，又回到了这里，欢迎各位有空到我的主页逛逛，以后我会用心维护，多发一点分享博文。&lt;/p&gt;
-&lt;p&gt;谢谢&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title: 2017之初&lt;br&gt;date: 2017-09-04 23:08:08&lt;br&gt;categories: 日志&lt;br&gt;tags:&lt;br&gt;—
     
     </summary>
     
@@ -186,31 +189,6 @@
     
       &lt;hr&gt;
 &lt;p&gt;title: JAVA的几个关键字解析&lt;br&gt;date: 2016-04-13 20:55:45&lt;br&gt;categories: JAVA&lt;br&gt;tags:&lt;br&gt;—
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://heyujie.xyz/2016/03/26/%E5%88%9D%E8%A8%80/"/>
-    <id>http://heyujie.xyz/2016/03/26/初言/</id>
-    <published>2016-03-26T07:25:26.728Z</published>
-    <updated>2016-04-13T13:41:02.911Z</updated>
-    
-    <content type="html">&lt;hr&gt;
-&lt;p&gt;title: 初言&lt;br&gt;date: 2016-03-26 22:20:26&lt;br&gt;categories: 日志&lt;br&gt;tags:&lt;br&gt;—        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;建这个博客最初是受一个师兄的影响，最近还不算很忙，就自己琢磨着开始找资料，看教程，一步步地架设，这过程中也遇到了不少的问题。作为这方面的小白，也就磕磕碰碰过来，自己折腾了几天，最后也是那位师兄帮了忙才能够初具模型。&lt;/p&gt;
-&lt;p&gt;转眼快清明放假了，自己也大三下了，三年过去了，自己也总是在忙着其他的事，没挂过科，拿过奖学金，涉及到的东西多而不专，唯一觉得比较遗憾的应该就是课程以外的书看得少了。&lt;/p&gt;
-&lt;p&gt;建这个博客的目的也是希望自己多表达，多总结，也能分享一些别人的好文章，分享一点自己大学的小成果。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;虽然现在还是比较简陋，往后会慢慢完善，欢迎各位好友常来这里转转。
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title: 初言&lt;br&gt;date: 2016-03-26 22:20:26&lt;br&gt;categories: 日志&lt;br&gt;tags:&lt;br&gt;—
     
     </summary>
     

@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
+    <meta name="description" content="title: x84_64下LEA指令date: 2017-10-25 23:20:08technology: 技术tags:—">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yujie--notes">
-<meta property="og:url" content="http://heyujie.xyz/2017/09/04/2017再出发/index.html">
+<meta property="og:url" content="http://heyujie.xyz/2017/10/24/x84_64下LEA指令简析/index.html">
 <meta property="og:site_name" content="yujie--notes">
-<meta property="og:description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
-<meta property="og:updated_time" content="2017-09-04T15:09:07.903Z">
+<meta property="og:description" content="title: x84_64下LEA指令date: 2017-10-25 23:20:08technology: 技术tags:—">
+<meta property="og:updated_time" content="2017-10-24T15:44:58.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yujie--notes">
-<meta name="twitter:description" content="title: 2017之初date: 2017-09-04 23:08:08categories: 日志tags:—">
+<meta name="twitter:description" content="title: x84_64下LEA指令date: 2017-10-25 23:20:08technology: 技术tags:—">
 
     
     <link rel="alternative" href="/atom.xml" title="yujie--notes" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/04/2017再出发/" title="" itemprop="url"></a>
+      <a href="/2017/10/24/x84_64下LEA指令简析/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heyujie" target="_blank" itemprop="author">Heyujie</a>
 		
   <p class="article-time">
-    <time datetime="2017-09-04T15:03:45.881Z" itemprop="datePublished"> 发表于 2017-09-04</time>
+    <time datetime="2017-10-24T15:44:58.471Z" itemprop="datePublished"> 发表于 2017-10-24</time>
     
   </p>
 </header>
@@ -104,9 +104,12 @@
 		</div>
 		
 		<hr>
-<p>title: 2017之初<br>date: 2017-09-04 23:08:08<br>categories: 日志<br>tags:<br>—        <a id="more"></a></p>
-<p>2017年9月4日，又回到了这里，欢迎各位有空到我的主页逛逛，以后我会用心维护，多发一点分享博文。</p>
-<p>谢谢</p>
+<p>title: x84_64下LEA指令<br>date: 2017-10-25 23:20:08<br>technology: 技术<br>tags:<br>—        <a id="more"></a></p>
+<p>最近在Linux-0.11内核，看到LEA这个指令有些不大明白，因此去查了下资料并做一点小的总结。<br>LEA,即load effective address加载有效地址之意，形式是从存储器读数据到寄存器，效果是将存储器的有效地址写入到目的操作数，类似于C语言的&amp;取指运算符。指令LEA的作用和80x86汇编有些类似，即地址传递。<br>这个指令其实和MOV很像，或者说是MOV的变形吧，但两者又有区别。MOV是数据传送指令，即把数据从源操作数传到目的操作数，MOV的具体一些细节这里不做细究，这里主要探讨一下LEA。在后面举例时就能看到这两者的一些区别。<br>例如在x84_64环境下,以下两行效果相同:<br>movq %rsp, %rdi<br>leaq (%rsp), %rdi<br>这里的区别是mov指令后的源操作数没有括号，是一种直接寻址的方式，即直接把%rsp的值赋给%rdi。是的。如果是movq (%rsp), %rdi，那么就变成了间接寻址了,也就是以%rsp里面的内容作为地址，到这个地址去取值，然后赋给%rdi寄存器。<br>那么leaq (%rsp), %rdi呢？首先，(%rsp)是一个内存引用，这里lea指令实际上并没有引用内存地址里的内容，而是把地址直接给了%rdi。<br>下面分析一个很有用但同时又很难理解的用法, 例如:leal 3(%ecx, %ecx, 2), %eax<br>假设%ecx的值为x, 执行上面语句得到%eax=3x+3.</p>
+<p>有点奇怪吧, 一个取址指令居然可以用来做简单算术操作了? 其实理解起来也不难, 3(%ecx, %ecx, 2)这个地址的值，也就是“3x+3”这个地址中的值, 当这个值作为leal的源操作数时会被取地址, 地址是什么? 自然就是“3x+2”嘛!</p>
+<p>呵呵，也就是说，其实不管是数值还是地址，机器也都是认识这是个数，对这个数的操作，操作完了按规则放进去不就是了嘛。</p>
+<p>PS: 可能有人会问为什么不把源操作数写成5(, %edx, 3), 这个嘛, 因为这种寻址模式的比例因子只能是1, 2, 4或者8.</p>
+<p>再来一个例子：leal 0x4(%esp), %ebx,该指令的作用是，取出esp寄存器里的值，加上4，不再继续寻址，而是将得到值直接传递给%ebx；如果是其他指令，则还需进行间接寻址，再传值（例如mov）.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,17 +158,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/09/05/简易算法1/" title="">
-  <strong>上一篇：</strong><br/>
-  <span>
-  (no title)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/13/电脑使用小方法/"  title="">
+<a href="/2017/09/05/简易算法1/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -176,7 +171,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/09/04/2017再出发/" data-title="" data-url="http://heyujie.xyz/2017/09/04/2017再出发/"></div>
+	<div class="ds-thread" data-thread-key="2017/10/24/x84_64下LEA指令简析/" data-title="" data-url="http://heyujie.xyz/2017/10/24/x84_64下LEA指令简析/"></div>
 </section>
 
 
