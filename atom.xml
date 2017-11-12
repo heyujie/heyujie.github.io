@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://heyujie.xyz/"/>
-  <updated>2017-10-24T15:44:58.473Z</updated>
+  <updated>2017-11-12T09:17:59.488Z</updated>
   <id>http://heyujie.xyz/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://heyujie.xyz/2017/11/12/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8BC%E7%BC%96%E7%A0%81%E5%AE%9E%E8%B7%B5%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    <id>http://heyujie.xyz/2017/11/12/软件工程C编码实践课程总结/</id>
+    <published>2017-11-12T08:18:52.369Z</published>
+    <updated>2017-11-12T09:17:59.488Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;软件工程C编码实践课程总结&quot;&gt;&lt;a href=&quot;#软件工程C编码实践课程总结&quot; class=&quot;headerlink&quot; title=&quot;软件工程C编码实践课程总结&quot;&gt;&lt;/a&gt;软件工程C编码实践课程总结&lt;/h1&gt;&lt;p&gt;何宇杰 + 《软件工程（C编码实践篇）》MOOC课程  &lt;a href=&quot;http://mooc.study.163.com/course/USTC-1000002006&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mooc.study.163.com/course/USTC-1000002006&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;课程学习感受&quot;&gt;&lt;a href=&quot;#课程学习感受&quot; class=&quot;headerlink&quot; title=&quot;课程学习感受&quot;&gt;&lt;/a&gt;课程学习感受&lt;/h2&gt;&lt;p&gt;　　这次的软件工程C编码实践课程，让我对软件工程的一些规范方面等有了新的认识。&lt;br&gt;　　首先是编程规范代码风格的问题，代码风格应遵循简明、易读、无二义性原则，要注意适当的使用空格和空行，是代码的整体结构和层次分明。函数和变量的命名也比较重要，好的命名通常可以让代码阅读者“见名知意”，此外还要适当地加一些注释，这些注释不应该对代码的设计方法做详细的解释，而是应该对代码实现的功能和提供的一些接口作说明，因为有着良好结构和清晰逻辑的代码是比较容易阅读理解的。孟老师对这方面比较强调，在我们所做的实验中都有这个要求。今后我也会更加注重这方面。&lt;br&gt;　　其次就是在代码设计上的收获，主要有模块化设计，通用接口的设计，如何实现信息隐藏，代码的迭代增量开发，抽象的重要性，如何设计一个更通用的子系统。老师对这些设计思想都给我们做了讲解，这方面的内容在老师的视频中都涉及到了。&lt;br&gt;　　最后，还学习到了多线程的线程安全编程的一些设计方法，还有如何在Linux下对一个子系统设计Makefile,然后对外提供接口，然后编写测试用例进行测试的思想。&lt;br&gt;　　孟宁老师布置的这几个实验都是在训练我们自顶向下的编程思想。比如模块化的编程方法，将业务逻辑和数据逻辑分离。我们在编程中应尽量去做到自顶向下，逐步求精。写出高聚合、低耦合的代码，这样的代码更具有安全性也更便于以后的维护。&lt;/p&gt;
+&lt;h2 id=&quot;课程实验报告链接&quot;&gt;&lt;a href=&quot;#课程实验报告链接&quot; class=&quot;headerlink&quot; title=&quot;课程实验报告链接&quot;&gt;&lt;/a&gt;课程实验报告链接&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1290344&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验一写一个hello world小程序&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1291522&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验二命令行菜单小程序V1.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1293287&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验三内部模块化的命令行菜单小程序V2.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1295992&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验四可重用链表模块来实现命令行菜单小程序V2.5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1298598&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验五：用callback增强链表模块来实现命令行菜单小程序V2.8&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.shiyanlou.com/courses/reports/1304019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实验七：将menu设计为可重用的子系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;课程收获与不足&quot;&gt;&lt;a href=&quot;#课程收获与不足&quot; class=&quot;headerlink&quot; title=&quot;课程收获与不足&quot;&gt;&lt;/a&gt;课程收获与不足&lt;/h2&gt;&lt;h3 id=&quot;课程收获&quot;&gt;&lt;a href=&quot;#课程收获&quot; class=&quot;headerlink&quot; title=&quot;课程收获&quot;&gt;&lt;/a&gt;课程收获&lt;/h3&gt;&lt;p&gt;　　首先，收获最大的是提高了自己自学的能力。通过自己的努力，让自己真正掌握了知识，这也能极大的增加学习的自信。&lt;br&gt;　　其次就是要多动手敲代码，对于这门课程的学习，最重要的就是自己动手敲代码。学习软件工程只看是不行的，只有亲自实践了，遇到问题解决了才能算有收获，要结合所学的理论，去验证自己的想法。&lt;/p&gt;
+&lt;h3 id=&quot;自己的不足&quot;&gt;&lt;a href=&quot;#自己的不足&quot; class=&quot;headerlink&quot; title=&quot;自己的不足&quot;&gt;&lt;/a&gt;自己的不足&lt;/h3&gt;&lt;p&gt;　　这门课程最大的遗憾就是对软件工程的了解还比较肤浅。很多还知识停留在理论层面，比如说一些设计模式上，老师课上所讲的一些设计模式，自己虽然听懂了，但却没有真正做一个比较大的项目去实践过，我想以后会有机会做一些项目时，再回过头来思考这些概念，肯定会更加深刻。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;软件工程C编码实践课程总结&quot;&gt;&lt;a href=&quot;#软件工程C编码实践课程总结&quot; class=&quot;headerlink&quot; title=&quot;软件工程C编码实践课程总结&quot;&gt;&lt;/a&gt;软件工程C编码实践课程总结&lt;/h1&gt;&lt;p&gt;何宇杰 + 《软件工程（C编码实践篇）》MOOC课程
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
