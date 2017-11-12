@@ -5,23 +5,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>remarks | yujie--notes</title>
+    <title>yujie--notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heyujie">
     
 
     
-    <meta name="description" content="何宇杰">
+    <meta name="description" content="title: 几个电脑使用问题的解决小方法date: 2016-04-13 22:45:26categories: 日志tags:—">
 <meta property="og:type" content="website">
-<meta property="og:title" content="remarks">
-<meta property="og:url" content="http://heyujie.xyz/remarks/index.html">
+<meta property="og:title" content="yujie--notes">
+<meta property="og:url" content="http://heyujie.xyz/category/Journal/电脑使用小方法.html">
 <meta property="og:site_name" content="yujie--notes">
-<meta property="og:description" content="何宇杰">
-<meta property="og:updated_time" content="2017-11-12T10:39:14.776Z">
+<meta property="og:description" content="title: 几个电脑使用问题的解决小方法date: 2016-04-13 22:45:26categories: 日志tags:—">
+<meta property="og:updated_time" content="2016-04-13T14:54:42.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="remarks">
-<meta name="twitter:description" content="何宇杰">
+<meta name="twitter:title" content="yujie--notes">
+<meta name="twitter:description" content="title: 几个电脑使用问题的解决小方法date: 2016-04-13 22:45:26categories: 日志tags:—">
 
     
     <link rel="alternative" href="/atom.xml" title="yujie--notes" type="application/atom+xml">
@@ -84,21 +84,27 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/remarks/index.html" title="remarks" itemprop="url">remarks</a>
+      <a href="/category/Journal/电脑使用小方法.html" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heyujie" target="_blank" itemprop="author">Heyujie</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-27T02:40:55.000Z" itemprop="datePublished"> 发表于 2016-03-27</time>
+    <time datetime="2017-11-12T10:42:58.710Z" itemprop="datePublished"> 发表于 2017-11-12</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<pre><code>何宇杰
-</code></pre>  
+		<hr>
+<p>title: 几个电脑使用问题的解决小方法<br>date: 2016-04-13 22:45:26<br>categories: 日志<br>tags:<br>—        <a id="more"></a></p>
+<p>能上ＱＱ，而不能打开网页的解决方法（个人一般直接上4的方法1，一般问题都能解决）<br>1.病毒感染所致。使用360、电脑管家，金山毒霸等扫描修复<br>2.DNS解析出错。打开控制面板–&gt;网络与Internet–&gt;网络与共享中心–&gt;更改适配器设置（一般左上方）–&gt;以太网（这里选择你连接的网络）–&gt;属性–&gt;网络–&gt;Internet协议版本4（TCP/IPV4）属性,勾选自动获得IP地址和自动获得DNS服务器地址<br>3.设置了代理服务器。访问互联网使用的是80或8080端口，如果使用了代理服务器端口也是80或8080页可能出现这种情况。解决方式是关闭代理或更换代理服务器及其端口。<br>4.系统文件损坏。<br>方法1：键盘win图标+R–&gt;输入cmd 回车–&gt;输入：netsh int ip reset 回车–&gt;再输入：netsh winsock reset　　回车，然后重启一下就可以了<br>方法2：用户管理员身份进入DOS（右击桌面左下win10图标–&gt;命令提示符（管理员））–&gt;输入:sfc /scannow  等待系统扫描之后重启<br>方法3：前面同2，进入DOS命令窗口，输入：DISM.exe /Online /Cleanup-image /Scanhealth （这命令是扫描你全部系统文件并和官方系统文件对比）<br>DISM.exe /Online /Cleanup-image /Restorehealth （这命令把那些不同的系统文件还原成系统官方源文件）</p>
+<hr>
+<p>磁盘重要文件损坏解决方法（U盘的话如果不是很重要格式化是个不错的选择）<br>1.chkdsk (U盘盘符):/f，例如修复K盘就是 chkdsk k:/f<br>2.使用EasyRecovery Professional，百度上有这个软件的使用教程，如果磁盘无法格式化也可以修复。</p>
+<hr>
+<p>Dr.com客户端登录问题<br>打开后无法弹出登录窗口或一直登录不上:<br>打开控制面板–&gt;网络与Internet–&gt;网络与共享中心–&gt;更改适配器设置（一般左上方）–&gt;以太网（这里选择你连接的网络）–&gt;属性–&gt;共享，取消Internet连接共享下的两个勾选</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -146,7 +152,7 @@
 	
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="remarks/index.html" data-title="remarks" data-url="http://heyujie.xyz/remarks/index.html"></div>
+	<div class="ds-thread" data-thread-key="category/Journal/电脑使用小方法.html" data-title="" data-url="http://heyujie.xyz/category/Journal/电脑使用小方法.html"></div>
 </section>
 
 
