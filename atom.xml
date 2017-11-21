@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://heyujie.xyz/"/>
-  <updated>2017-11-12T09:23:50.716Z</updated>
+  <updated>2017-11-21T10:45:08.479Z</updated>
   <id>http://heyujie.xyz/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://heyujie.xyz/2017/11/21/Ubuntu%2016.04%E4%B8%8B%E5%AE%89%E8%A3%85ssh%E8%BF%9C%E7%A8%8B%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://heyujie.xyz/2017/11/21/Ubuntu 16.04下安装ssh远程无法连接的解决方法/</id>
+    <published>2017-11-21T10:35:29.966Z</published>
+    <updated>2017-11-21T10:45:08.479Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;p&gt;title: Ubuntu 16.04下安装ssh远程无法连接的解决方法&lt;br&gt;date: 2017-11-21 20:30:12&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; 　　因为新版的ssh抛弃了以前的加密算法，所以ssh客户端不能连接，请求会被拒绝，我们可以指定原来的加密算法即可。&lt;br&gt;　　打开配置文件：&lt;br&gt;sudo vi /etc/ssh/sshd_config&lt;br&gt;在最后添加如下内容（命令模式按shift+g跳到最后一行，然后按小写的o新起一行）：&lt;br&gt;Ciphers aes128-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,3des-cbc,arcfour128,arcfour256,arcfour,blowfish-cbc,cast128-cbcMACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha1-96,hmac-md5-96&lt;br&gt;KexAlgorithms diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group1-sha1,curve25519-sha256@libssh.org&lt;br&gt;完成后重启ssh即可连接：&lt;br&gt;sudo /etc/init.d/ssh restart&lt;br&gt;如果需要root用户远程登录，还需要修改/etc/ssh/sshd_config配置文件中：&lt;br&gt;PermitRootLogin without-password（prohibition-password）&lt;br&gt;   改为：&lt;br&gt;　　PermitRootLogin yes&lt;br&gt;然后重启ssh即可。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: Ubuntu 16.04下安装ssh远程无法连接的解决方法&lt;br&gt;date: 2017-11-21 20:30:12&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://heyujie.xyz/2017/11/20/%E6%83%A0%E6%99%AE%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85msata%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://heyujie.xyz/2017/11/20/惠普电脑安装msata固态硬盘系统/</id>
+    <published>2017-11-20T12:48:48.897Z</published>
+    <updated>2017-11-21T10:40:51.523Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;p&gt;title: 惠普笔记本msata固态硬盘安装系统方式&lt;br&gt;date: 2017-11-21 20:10:32&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;msata接口的SSD是没有引导功能的，所以如果系统是安装在SSD上是无法启动进入系统的，与uefi引导模式没有直接的关系，此SSD做加速用是最佳的。&lt;/p&gt;
+&lt;p&gt;如果确实需要SSD做系统盘，可以尝试开机不断点击F9，进入启动菜单，选择光驱启动安装系统，将分区全部删除之后，在机械硬盘上面新建分区（按照您的需要分成几个分区）会自动创建出100M的系统保留分区。这里是最重要的一步，因为mSATA接口的SSD没有引导功能，需要在机械硬盘上面有“100M的系统分区”系统才能正常启动；然后将系统安装到SSD上，即可正常启动并使用操作系统。如果需要将系统安装到固态硬盘里，只能先在机械硬盘上面新建分区（按照您的需要分成几个分区）等待系统自动创建出100M的系统保留分区后重启系统重新引导，再将系统指定到固态硬盘分区。使用机械硬盘中记录的引导数据，读取固态硬盘的系统数据，用这个方法试下是否可以使用，建议提前备份数据。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: 惠普笔记本msata固态硬盘安装系统方式&lt;br&gt;date: 2017-11-21 20:10:32&lt;br&gt;technology: 技术&lt;br&gt;tags:&lt;br&gt;—
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
